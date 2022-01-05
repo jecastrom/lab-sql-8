@@ -1,0 +1,7 @@
+-- SQL Lab 8
+-- 1. Rank films by length
+-- 2. Rank films by length within the rating category
+-- 3. How many films are there for each of the categories in the category table?
+-- 4. Which actor has appeared in the most films?
+-- 5. Most active customer
+-- 6. Find which is the most rented film
