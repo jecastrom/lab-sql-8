@@ -1,13 +1,13 @@
-= Lab xxxx
+= Lab SQL Queries 8
 :stylesheet: boot-darkly.css
 :linkcss: boot-darkly.css
 :image-url-ironhack: https://user-images.githubusercontent.com/23629340/40541063-a07a0a8a-601a-11e8-91b5-2f13e4e6b441.png
 :my-name: Jorge Castro DAPT NOV2021
 :description:
-:script-url: https://github.com/jecastrom/data_2.07_activities/blob/7abfb6a0375c2c4ad3021f3f9a388a495142e1a8/files_for_actitity/act%202.07%20solutions.sql
+:script-url: 
 :fn-xxx: Add the explanation foot note here bla bla
 :toc:
-:toc-title: Lab description: In this lab, you will....
+:toc-title: In this lab, you will be using the Sakila database of movie rentals. You have been using this database for a couple labs already, but if you need to get the data again, refer to the official installation link.
 :toc-placement!:
 :toclevels: 5
 ifdef::env-github[]
@@ -63,7 +63,7 @@ toc::[]
 
 
 = Instructions:
-== Question or request.
+== Rank films by length (filter out the rows that have nulls or 0s in length column). In your output, only select the columns title, length, and the rank.
 
 
 `*_Answer:_*`
@@ -74,13 +74,65 @@ toc::[]
 
 image::[width=700]
 
+== Rank films by length within the rating category (filter out the rows that have nulls or 0s in length column). In your output, only select the columns title, length, rating and the rank.
+
+`*_Answer:_*`
+
+```sql
+
+```
+
+image::path[width=800]
+
+== How many films are there for each of the categories in the category table. Use appropriate join to write this query
+
+`*_Answer:_*`
+
+```sql
+
+```
+
+image::path[width=800]
+
+== Which actor has appeared in the most films?
+
+`*_Answer:_*`
+
+```sql
+
+```
+
+image::path[width=800]
+
+== Most active customer (the customer that has rented the most number of films)
+
+`*_Answer:_*`
+
+```sql
+
+```
+
+image::path[width=800]
+
+== Which is the most rented film? 
+
+* The answer is Bucket Brotherhood This query might require using more than one join statement. Give it a try. We will talk about queries with multiple join statements later in the lessons.
+
+`*_Answer:_*`
+
+```sql
+
+```
+
+image::path[width=800]
+
+
+
 ====
 ''''
 ====
 
-=== sjhdshds dhsjdh
-==== jksskj
-===== Last section
+
 
 ====
 ''''
@@ -95,9 +147,9 @@ image::[width=700]
 
 
 
-xref:Lab-xxxx[Top Section]
+xref:Lab-SQL-Queries-8[Top Section]
 
-xref:Last-section[Bottom section]
+xref:Which-is-the-most-rented-film? [Bottom section]
 
 bla bla blafootnote:[{fn-xxx}]
 
