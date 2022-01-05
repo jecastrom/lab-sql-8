@@ -120,10 +120,19 @@ image::https://user-images.githubusercontent.com/63274055/148276964-2558ed20-fa6
 `*_Answer:_*`
 
 ```sql
-
+SELECT
+    a.`name` AS film_category,
+    count(b.film_id) AS number_of_films
+FROM
+    category a
+    INNER JOIN film_category b ON a.category_id = b.category_id
+GROUP BY
+    1
+ORDER BY
+    2 DESC;
 ```
 
-image::path[width=800]
+image::https://user-images.githubusercontent.com/63274055/148281739-01319743-ad93-4309-954e-7f22ca948a44.png[width=800]
 
 == Which actor has appeared in the most films?
 
