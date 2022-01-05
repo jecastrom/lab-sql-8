@@ -95,10 +95,23 @@ image::https://user-images.githubusercontent.com/63274055/148272842-f1628185-280
 `*_Answer:_*`
 
 ```sql
-
+SELECT
+    title,
+    `length`,
+    rating,
+    dense_rank() over(
+        ORDER BY
+            `length` DESC
+    ) AS ranking
+FROM
+    film
+WHERE
+    `length` NOT IN (0, '', ' ')
+ORDER BY
+    3;
 ```
 
-image::path[width=800]
+image::https://user-images.githubusercontent.com/63274055/148276964-2558ed20-fa66-4695-b49b-d0fda6a6f017.png[width=800]
 
 == How many films are there for each of the categories in the category table?
 
