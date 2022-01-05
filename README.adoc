@@ -72,10 +72,21 @@ toc::[]
 `*_Answer:_*`
 
 ```sql
-
+SELECT
+    title,
+    `length`,
+    rank() over(
+        ORDER BY
+            `length` DESC
+    ) AS ranking
+FROM
+    film
+WHERE
+    `length` != 0
+    OR NOT NULL;
 ```
 
-image::[width=700]
+image::https://user-images.githubusercontent.com/63274055/148272842-f1628185-280c-4b58-93a4-f6b3d52215c8.png[width=700]
 
 == Rank films by length within the rating category 
 

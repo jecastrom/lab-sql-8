@@ -1,0 +1,519 @@
+= SQL Activity 2 08
+:stylesheet: boot-darkly.css
+:linkcss: boot-darkly.css
+:image-url-ironhack: https://user-images.githubusercontent.com/23629340/40541063-a07a0a8a-601a-11e8-91b5-2f13e4e6b441.png
+:my-name: Jorge Castro DAPT NOV2021
+:description: SQL queries Activities
+:script-url: https://github.com/jecastrom/data_2.08_activities/blob/07de32d6af11671b1900cd9c8a42ed7a58c32765/files_for_act/2.08_act_solutions.sql
+:toc:
+:toc-title: Content:
+:toc-placement!:
+:toclevels: 5
+:fn-rank: Strategies for assigning rankings: Standard competition ranking. Wikipedia
+:fn-dense_rank: Strategies for assigning rankings: Dense ranking. Wikipedia
+:rank-wiki: https://en.wikipedia.org/wiki/Ranking#:~:text=also%20shown%20below.-,Standard%20competition%20ranking%20(%221224%22%20ranking),of%20items%20that%20compared%20equal.
+:drank-wiki: https://en.wikipedia.org/wiki/Ranking#:~:text=as%20a%20gap.-,Dense%20ranking%20("1223"%20ranking),respect%20to%20the%20ranking%20order.
+ifdef::env-github[]
+:sectnums:
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+:experimental:
+:table-caption!:
+:example-caption!:
+:figure-caption!:
+:idprefix:
+:idseparator: -
+:linkattrs:
+:fontawesome-ref: http://fortawesome.github.io/Font-Awesome
+:icon-inline: {user-ref}/#inline-icons
+:icon-attribute: {user-ref}/#size-rotate-and-flip
+:video-ref: {user-ref}/#video
+:checklist-ref: {user-ref}/#checklists
+:list-marker: {user-ref}/#custom-markers
+:list-number: {user-ref}/#numbering-styles
+:imagesdir-ref: {user-ref}/#imagesdir
+:image-attributes: {user-ref}/#put-images-in-their-place
+:toc-ref: {user-ref}/#table-of-contents
+:para-ref: {user-ref}/#paragraph
+:literal-ref: {user-ref}/#literal-text-and-blocks
+:admon-ref: {user-ref}/#admonition
+:bold-ref: {user-ref}/#bold-and-italic
+:quote-ref: {user-ref}/#quotation-marks-and-apostrophes
+:sub-ref: {user-ref}/#subscript-and-superscript
+:mono-ref: {user-ref}/#monospace
+:css-ref: {user-ref}/#custom-styling-with-attributes
+:pass-ref: {user-ref}/#passthrough-macros
+endif::[]
+ifndef::env-github[]
+:imagesdir: ./
+endif::[]
+
+image::{image-url-ironhack}[width=70]
+
+{my-name}
+
+
+                                                     
+====
+''''
+====
+{description}
+
+toc::[]
+
+
+
+= Activity 1
+
+* In this activity, we will be using the table `district` from the `bank` database and according to the description for the different columns:
+
+** A4: no. of inhabitants
+** A9: no. of cities
+** A10: the ratio of urban inhabitants
+** A11: average salary
+** A12: the unemployment rate
+
+== Rank districts by different variables
+
+`*_Answer:_*`
+
+
+** A4: no. of inhabitants
+
+```sql
+SELECT
+    a2 AS district_name,
+    a4 AS no_of_inhabitants,
+    rank() over(
+        ORDER BY
+            a4 DESC
+    ) AS ranking
+FROM
+    district;
+```
+image::https://user-images.githubusercontent.com/63274055/147936926-1c13dd31-b52f-4f6d-b31b-f95a07df1afd.png[width=600]
+
+** A9: no. of cities
+
+
+
+```sql
+SELECT
+    a2 AS district_name,
+    a9 AS no_of_cities,
+    rank() over(
+        ORDER BY
+            a9 DESC
+    ) AS ranking
+FROM
+    district;
+```
+
+image::https://user-images.githubusercontent.com/63274055/147939661-88d36340-bd7c-4e49-b28d-d60875e9f991.png[width=600]
+
+[NOTE]
+====
+Notice that the number of cities can repeat or tie. When this occurs 
+the two values receive the same ranking number, and then a gap is left 
+in the ranking numbers. 
+
+The Rank() functions uses a link:{rank-wiki}[Standard competition ranking strategy] (`1224` ranking). for example 
+ranks in a "Olympic medalling style", if two people  share the gold, there is no 
+silver medalist.footnote:[{fn-rank}]
+ 
+If I didn't want a "gap" in the ranking numbers, then I should use the Dense_rank() 
+function which uses a link:{drank-wiki}[Dense ranking strategy] (`1223` ranking)  so no olympic medalling style of ranking with Dense_rank(). In dense ranking, items that compare equally receive the same ranking number, and the next items receive the immediately following ranking number.footnote:[{fn-dense_rank}]
+====
+
+
+
+
+```sql
+ SELECT
+    a2 AS district_name,
+    a9 AS no_of_cities,
+    dense_rank() over(
+        ORDER BY
+            a9 DESC
+    ) AS ranking
+FROM
+    district;
+```
+
+image::https://user-images.githubusercontent.com/63274055/147939794-9b75ea6d-6a4b-4694-b02f-b4ec296d0049.png[width=600]
+
+** A10: the ratio of urban inhabitants
+
+```sql
+SELECT
+    a2 AS district_name,
+    a10 AS ratio_of_urban_inhabitants,
+    rank() over(
+        ORDER BY
+            a10 DESC
+    ) AS ranking
+FROM
+    district;
+```
+image::https://user-images.githubusercontent.com/63274055/147943046-3d82e44e-dca7-4acd-90c2-75b1415259a1.png[width=600]
+
+** A11: average salary
+
+```sql
+SELECT
+    a2 AS district_name,
+    a11 AS average_salary,
+    rank() over(
+        ORDER BY
+            a11 DESC
+    ) AS ranking
+FROM
+    district;
+```
+image::https://user-images.githubusercontent.com/63274055/147943578-3f9799d0-5f0d-4057-b8d4-9efc6969100d.png[width=600]
+
+** A12: the unemployment rate
+
+```sql
+SELECT
+    a2 AS district_name,
+    a12 AS unemployment_rate,
+    rank() over(
+        ORDER BY
+            a12 DESC
+    ) AS ranking
+FROM
+    district;
+```
+image::https://user-images.githubusercontent.com/63274055/147962196-64c43272-ae8c-428d-bfe8-31f143930c9c.png[width=600]
+
+** An overview ranked by unemployment rate
+
+```sql
+SELECT
+    a2 AS district_name,
+    a12 AS unemployment_rate,
+    rank() over(
+        ORDER BY
+            a12 DESC
+    ) AS ranking,
+    a4 AS no_of_inhabitants,
+    rank() over(
+        ORDER BY
+            a4 DESC
+    ) AS ranking,
+    a9 AS no_of_cities,
+    rank() over(
+        ORDER BY
+            a9 DESC
+    ) AS ranking,
+    a10 AS ratio_of_urban_inhabitants,
+    rank() over(
+        ORDER BY
+            a10 DESC
+    ) AS ranking,
+    a11 AS average_salary,
+    rank() over(
+        ORDER BY
+            a11 DESC
+    ) AS ranking
+FROM
+    district
+ORDER BY
+    unemployment_rate DESC;
+```
+image::https://user-images.githubusercontent.com/63274055/147964235-1d581a9d-5523-45df-b62e-2a08b276c4f4.png[width=800]
+
+xref:SQL-Activity-2-08[Top Section]
+
+xref:Get-the-number-of-accounts-opened-by-district-and-year[Bottom Section]
+
+== Do the same but group by region
+
+`*_Answer:_*`
+
+```sql
+SELECT
+    a3 AS region,
+    sum(a4) AS no_of_inhabitants,
+    rank() over(
+        ORDER BY
+            sum(a4) DESC
+    ) AS ranking,
+    sum(a9) AS no_of_cities,
+    rank() over(
+        ORDER BY
+            sum(a9) DESC
+    ) AS ranking,
+    avg(a10) AS ratio_of_urban_inhabitants,
+    rank() over(
+        ORDER BY
+            avg(a10) DESC
+    ) AS ranking,
+    avg(a11) AS average_salary,
+    rank() over(
+        ORDER BY
+            avg(a11) DESC
+    ) AS ranking,
+    avg(a12) AS unemployment_rate,
+    rank() over(
+        ORDER BY
+            avg(a12) DESC
+    ) AS ranking
+FROM
+    district
+GROUP BY
+    1
+ORDER BY
+    no_of_inhabitants DESC;
+```
+image::https://user-images.githubusercontent.com/63274055/147972175-2a6f834b-38f0-4da4-9751-c55559675344.png[width=800] 
+
+xref:SQL-Activity-2-08[Top Section]
+
+xref:Get-the-number-of-accounts-opened-by-district-and-year[Bottom Section]
+
+
+= Activity 2
+
+== Use the transactions table in the `bank` database to find the Top 20 `account_ids` based on the `amount`.
+
+`*_Answer:_*`
+
+```sql
+SELECT
+    account_id,
+    amount,
+    rank() over(
+        ORDER BY
+            amount DESC
+    ) AS top_20_transactions
+FROM
+    trans
+LIMIT
+    20;
+```
+
+image::https://user-images.githubusercontent.com/63274055/147998575-c87a88e2-65b7-48a7-8eab-08d4471d0dc1.png[width=800]
+
+xref:SQL-Activity-2-08[Top Section]
+
+xref:Get-the-number-of-accounts-opened-by-district-and-year[Bottom Section]
+
+
+
+
+== Illustrate the difference between `rank()` and `dense_rank()`.
+
+xref:Rank-districts-by-different-variables[Answered in activity 1]
+
+= Activity 3
+
+* Keep using the `bank` database.
+
+== Get a rank of districts ordered by the number of customers
+
+`*_Answer:_*`
+
+```sql
+SELECT
+    district_id,
+    district.a2 AS district_name,
+    count(*) AS total_number_of_customers,
+    rank() over(
+        ORDER BY
+            count(*) DESC
+    ) AS ranking
+FROM
+    client
+    INNER JOIN district ON `client`.district_id = district.a1
+GROUP BY
+    1;
+
+```
+
+image::https://user-images.githubusercontent.com/63274055/148056923-21742939-d8af-4333-8e82-60003af94f54.png[width=500]
+
+xref:SQL-Activity-2-08[Top Section]
+
+xref:Get-the-number-of-accounts-opened-by-district-and-year[Bottom Section]
+
+== Get a rank of regions ordered by the number of customers
+
+`*_Answer:_*`
+
+```sql
+SELECT
+    district.a3 AS region_name,
+    count(*) AS total_number_of_customers,
+    rank() over(
+        ORDER BY
+            count(*) DESC
+    ) AS ranking
+FROM
+    client
+    INNER JOIN district ON `client`.district_id = district.a1
+GROUP BY
+    1;
+```
+
+image::https://user-images.githubusercontent.com/63274055/148058920-f9450c86-3765-4ca6-837f-b2b1d6dfde25.png[width=800]
+
+xref:SQL-Activity-2-08[Top Section]
+
+xref:Get-the-number-of-accounts-opened-by-district-and-year[Bottom Section]
+
+== Get the total amount borrowed by the district together with the average loan in that district
+
+`*_Answer:_*`
+
+```sql
+SELECT
+    district_id,
+    district.a2 AS district_name,
+    sum(loan.amount) AS total_amount_borrowed,
+    floor(avg(loan.amount)) AS average_loan
+FROM
+    loan
+    INNER JOIN account ON loan.account_id = account.account_id
+    INNER JOIN district ON account.district_id = district.a1
+GROUP BY
+    1
+ORDER BY
+    3 DESC;
+```
+
+image::https://user-images.githubusercontent.com/63274055/148067880-34346710-5ea6-4530-a4fd-402a660d5f9e.png[width=800]
+
+xref:SQL-Activity-2-08[Top Section]
+
+xref:Get-the-number-of-accounts-opened-by-district-and-year[Bottom Section]
+
+== Get the number of accounts opened by district and year
+
+`*_Answer:_*`
+
+```sql
+SELECT
+    a1 AS district_id,
+    a2 AS district_name,
+    count(*) AS accounts_opened,
+    concat('19', left(`date`, 2)) AS year
+FROM
+    account
+    INNER JOIN district ON account.district_id = district.a1
+GROUP BY
+    1,
+    4
+ORDER BY
+    1,
+    4 DESC;
+```
+
+image::https://user-images.githubusercontent.com/63274055/148075331-2b2d6f2a-4432-484c-ac64-5bf67f7bcb2f.png[width=800]
+
+
+
+
+
+
+
+
+====
+''''
+====
+
+
+
+
+{script-url}[Solutions script only]
+
+====
+''''
+====
+
+//bla bla blafootnote:[{fn-xxx}]
+
+xref:SQL-Activity-2-08[Top Section]
+
+xref:Get-the-number-of-accounts-opened-by-district-and-year[Bottom Section]
+
+
+
+//xref:Do-the-same-but-group-by-region[Bottom section]
+
+
+////
+.Unordered list title
+* gagagagagaga
+** gagagatrtrtrzezeze
+*** zreu fhjdf hdrfj 
+*** hfbvbbvtrtrttrhc
+* rtez uezrue rjek  
+
+.Ordered list title
+. rwieuzr skjdhf
+.. weurthg kjhfdsk skhjdgf
+. djhfgsk skjdhfgs 
+.. lksjhfgkls ljdfhgkd
+... kjhfks sldfkjsdlk
+
+
+
+
+[,sql]
+----
+----
+
+
+
+[NOTE]
+====
+A sample note admonition.
+====
+ 
+TIP: It works!
+ 
+IMPORTANT: Asciidoctor is awesome, don't forget!
+ 
+CAUTION: Don't forget to add the `...-caption` document attributes in the header of the document on GitHub.
+ 
+WARNING: You have no reason not to use Asciidoctor.
+
+bla bla bla the 1NF or first normal form.footnote:[{1nf}]Then wen bla bla
+
+
+====
+- [*] checked
+- [x] also checked
+- [ ] not checked
+-     normal list item
+====
+[horizontal]
+CPU:: The brain of the computer.
+Hard drive:: Permanent storage for operating system and/or user files.
+RAM:: Temporarily stores information the CPU uses during operation.
+
+
+
+
+
+
+bold *constrained* & **un**constrained
+
+italic _constrained_ & __un__constrained
+
+bold italic *_constrained_* & **__un__**constrained
+
+monospace `constrained` & ``un``constrained
+
+monospace bold `*constrained*` & ``**un**``constrained
+
+monospace italic `_constrained_` & ``__un__``constrained
+
+monospace bold italic `*_constrained_*` & ``**__un__**``constrained
+
+////
