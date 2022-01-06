@@ -6,6 +6,7 @@
 :description:
 :script-url: https://github.com/jecastrom/lab-sql-8/blob/1c5a8ebf1ea65264450d2c493a0eb18643c3c3fc/files_for_lab/SQL%20lab%208%20solutions%20script.sql
 :sakila-edr: https://user-images.githubusercontent.com/63274055/147394200-2fdeec2e-a41a-4094-b544-dede2b263d96.png
+:related-content: https://github.com/jecastrom/data_2.08_activities.git
 //:fn-xxx: Add the explanation foot note here bla bla
 :toc:
 :toc-title: In this lab, you will be using the Sakila database of movie rentals. You have been using this database for a couple labs already, but if you need to get the data again, refer to the official installation link.
@@ -284,6 +285,7 @@ image::https://user-images.githubusercontent.com/63274055/148328643-18876341-5bb
 ''''
 ====
 
+{related-content}[Related content: Activity 2.08]
 
 
 ====
