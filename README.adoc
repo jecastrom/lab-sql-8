@@ -20,7 +20,7 @@ ifdef::env-github[]
 :experimental:
 :table-caption!:
 :example-caption!:
-:figure-caption!:
+:figure-caption:
 :idprefix:
 :idseparator: -
 :linkattrs:
