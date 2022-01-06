@@ -206,22 +206,18 @@ LIMIT
 
 image::https://user-images.githubusercontent.com/63274055/148324695-4b6b9200-1b85-41fa-88bf-54599179d5ee.png[width=400]
 
-
+[NOTE]
+====
 To do any sort of join, I find helpful to think of it as a 3 step process:
 
 * Step 1: To think or to draw the actual table we are being ask as an outcome. In my case, I draw them, if the join involves several tables.
-
-
 
 Then build the SELECT statement: This is where we define the actual layout of the table, the order in which the columns are in the table from left to right and using the aggregations and functions if need be.
 
 * Step 2 is to map how we are going to get from table A to table B, C, or D... so we can have a logical path that links the tables. Here we see which primary keys and foreign keys will help us to do so.
 
 * Step 3: We filter and sort the information we a selecting with the WHERE, Group By, Having and Order by clauses. Note that in some cases, the query that we have just built becomes a sub query, so we can refine the outcome to fit what we are being ask.
-
-
-
-
+====
 
 
 image::https://user-images.githubusercontent.com/63274055/148315353-95fde644-9d28-4602-8a0e-833810167b83.png[width=800]
