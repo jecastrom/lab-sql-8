@@ -203,7 +203,7 @@ LIMIT
 image::https://user-images.githubusercontent.com/63274055/148315353-95fde644-9d28-4602-8a0e-833810167b83.png[width=800]
 
 
-image::https://github.com/jecastrom/lab-sql-8/blob/cbdd7f8cc97004857806967d7be8b15c0f877395/files_for_lab/sakila%20join.gif[width=300]
+image::https://github.com/jecastrom/lab-sql-8/blob/cbdd7f8cc97004857806967d7be8b15c0f877395/files_for_lab/sakila%20join.gif[width=600]
 
 ====
 ''''
