@@ -204,12 +204,14 @@ LIMIT
     1;
 ```
 
+image::https://user-images.githubusercontent.com/63274055/148324695-4b6b9200-1b85-41fa-88bf-54599179d5ee.png[width=400]
+
 
 To do any sort of join, I find helpful to think of it as a 3 step process:
 
 * Step 1: To think or to draw the actual table we are being ask as an outcome. In my case, I draw them, if the join involves several tables.
 
-image::https://user-images.githubusercontent.com/63274055/148324695-4b6b9200-1b85-41fa-88bf-54599179d5ee.png[width=400]
+
 
 Then build the SELECT statement: This is where we define the actual layout of the table, the order in which the columns are in the table from left to right and using the aggregations and functions if need be.
 
