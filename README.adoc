@@ -208,7 +208,7 @@ image::https://user-images.githubusercontent.com/63274055/148315353-95fde644-9d2
 
 
 
-[NOTE]
+[TIP]
 ====
 To do any sort of join, I find helpful to think of it as a 3 step process:
 
