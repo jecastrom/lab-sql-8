@@ -47,6 +47,20 @@ FROM
 GROUP BY
     1
 ORDER BY
-    2 DESC;
+    2 DESC
+LIMIT
+    1;
 -- 5. Most active customer
+SELECT
+    concat((a.first_name), ' ', (a.last_name)) customer_name,
+    count(b.rental_id) AS rented_films
+FROM
+    customer a
+    INNER JOIN rental b ON a.customer_id = b.customer_id
+GROUP BY
+    1
+ORDER BY
+    2 DESC
+LIMIT
+    1;
 -- 6. Find which is the most rented film

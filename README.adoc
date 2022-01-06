@@ -148,10 +148,12 @@ FROM
 GROUP BY
     1
 ORDER BY
-    2 DESC;
+    2 DESC
+LIMIT
+    1;
 ```
 
-image::https://user-images.githubusercontent.com/63274055/148308092-cc9c924b-b50d-41e9-a301-0f2d5aa7e603.png[width=800]
+image::https://user-images.githubusercontent.com/63274055/148309559-08d56cf9-7831-43ad-8fc6-efcbf4a518dc.png[width=800]
 
 == Most active customer 
 
@@ -160,10 +162,21 @@ image::https://user-images.githubusercontent.com/63274055/148308092-cc9c924b-b50
 `*_Answer:_*`
 
 ```sql
-
+SELECT
+    concat((a.first_name), ' ', (a.last_name)) customer_name,
+    count(b.rental_id) AS rented_films
+FROM
+    customer a
+    INNER JOIN rental b ON a.customer_id = b.customer_id
+GROUP BY
+    1
+ORDER BY
+    2 DESC
+LIMIT
+    1;
 ```
 
-image::path[width=800]
+image::https://user-images.githubusercontent.com/63274055/148309349-a82cb5bb-9fa3-4960-9906-aee12f7104f4.png[width=800]
 
 == Find which is the most rented film
 
