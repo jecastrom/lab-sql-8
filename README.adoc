@@ -203,7 +203,7 @@ LIMIT
 image::https://user-images.githubusercontent.com/63274055/148315353-95fde644-9d28-4602-8a0e-833810167b83.png[width=800]
 
 
-image::https://user-images.githubusercontent.com/63274055/148318599-d1c8130c-54fe-448e-85a6-ea9767b7072c.gif[width=100]
+image::https://user-images.githubusercontent.com/63274055/148318599-d1c8130c-54fe-448e-85a6-ea9767b7072c.gif[width=300]
 
 ====
 ''''
