@@ -64,3 +64,16 @@ ORDER BY
 LIMIT
     1;
 -- 6. Find which is the most rented film
+SELECT
+    b.title,
+    count(c.rental_id) AS number_of_rents
+FROM
+    inventory a
+    INNER JOIN film b ON a.film_id = b.film_id
+    INNER JOIN rental c ON a.inventory_id = c.inventory_id
+GROUP BY
+    1
+ORDER BY
+    2 DESC
+LIMIT
+    1;
