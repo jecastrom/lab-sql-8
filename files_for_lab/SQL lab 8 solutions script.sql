@@ -38,5 +38,15 @@ GROUP BY
 ORDER BY
     2 DESC;
 -- 4. Which actor has appeared in the most films?
+SELECT
+    concat((a.first_name), ' ', (a.last_name)) actor_name,
+    count(b.film_id) AS actors_appearances
+FROM
+    actor a
+    INNER JOIN film_actor b ON a.actor_id = b.actor_id
+GROUP BY
+    1
+ORDER BY
+    2 DESC;
 -- 5. Most active customer
 -- 6. Find which is the most rented film

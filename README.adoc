@@ -138,8 +138,17 @@ image::https://user-images.githubusercontent.com/63274055/148281739-01319743-ad9
 
 `*_Answer:_*`
 
-```sql
-
+```js
+SELECT
+    concat((a.first_name), ' ', (a.last_name)) actor_name,
+    count(b.film_id) AS actors_appearances
+FROM
+    actor a
+    INNER JOIN film_actor b ON a.actor_id = b.actor_id
+GROUP BY
+    1
+ORDER BY
+    2 DESC;
 ```
 
 image::path[width=800]
