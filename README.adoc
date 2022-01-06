@@ -138,6 +138,12 @@ ORDER BY
 
 image::https://user-images.githubusercontent.com/63274055/148281739-01319743-ad93-4309-954e-7f22ca948a44.png[width=800]
 
+
+xref:Lab-SQL-Queries-8[Top Section]
+
+xref:Find-which-is-the-most-rented-film[Bottom section]
+
+
 == Which actor has appeared in the most films?
 
 `*_Answer:_*`
@@ -182,6 +188,11 @@ LIMIT
 
 image::https://user-images.githubusercontent.com/63274055/148309349-a82cb5bb-9fa3-4960-9906-aee12f7104f4.png[width=800]
 
+
+xref:Lab-SQL-Queries-8[Top Section]
+
+xref:Find-which-is-the-most-rented-film[Bottom section]
+
 == Find which is the most rented film
 
 * The answer is Bucket Brotherhood This query might require using more than one join statement. Give it a try. We will talk about queries with multiple join statements later in the lessons.
@@ -205,6 +216,13 @@ LIMIT
 ```
 
 image::https://user-images.githubusercontent.com/63274055/148315353-95fde644-9d28-4602-8a0e-833810167b83.png[width=800]
+
+
+xref:Lab-SQL-Queries-8[Top Section]
+
+xref:Find-which-is-the-most-rented-film[Bottom section]
+
+
 
 
 
