@@ -227,8 +227,16 @@ image::https://user-images.githubusercontent.com/63274055/148315353-95fde644-9d2
 
 
 [#img-join]
-.A triple inner join (Sakila database)
+.A triple inner join. Notice how the tables are connected so we could build our join.
+
 image::https://github.com/jecastrom/lab-sql-8/blob/cbdd7f8cc97004857806967d7be8b15c0f877395/files_for_lab/sakila%20join.gif[width=800]
+
+
+[#img-join-process]
+.Translating the desired outcome into building the query.
+image::https://user-images.githubusercontent.com/63274055/148328643-18876341-5bb3-4c88-98bd-504e39535265.png[width=500]
+
+
 
 ====
 ''''
