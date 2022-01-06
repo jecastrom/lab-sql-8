@@ -205,7 +205,7 @@ LIMIT
 ```
 
 
-To do any sort of join, I find helpful to think of it as a 3 step process:app-name: 
+To do any sort of join, I find helpful to think of it as a 3 step process:
 
 * Step 1: To think or to draw the actual table we are being ask as an outcome. In my case, I draw them, if the join involves several tables.
 
