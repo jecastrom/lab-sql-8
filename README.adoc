@@ -151,7 +151,7 @@ ORDER BY
     2 DESC;
 ```
 
-image::path[width=800]
+image::https://user-images.githubusercontent.com/63274055/148308092-cc9c924b-b50d-41e9-a301-0f2d5aa7e603.png[width=800]
 
 == Most active customer 
 
