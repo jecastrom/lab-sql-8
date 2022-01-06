@@ -231,7 +231,7 @@ image::https://user-images.githubusercontent.com/63274055/148315353-95fde644-9d2
 ====
 
 [#img-join]
-.A triple inner join. Notice how the tables are connected so we could build our join. This interactive EDR is a very useful feature of MySQL Workbench.
+.A triple inner join. Notice how the tables are connected so we could build our join. The film table is connected to the inventory table, then from another key it links to the rental table. This interactive EDR is a very useful feature of MySQL Workbench.
 image::https://github.com/jecastrom/lab-sql-8/blob/cbdd7f8cc97004857806967d7be8b15c0f877395/files_for_lab/sakila%20join.gif[width=800]
 
 ====
