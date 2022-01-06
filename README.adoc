@@ -92,6 +92,12 @@ WHERE
 
 image::https://user-images.githubusercontent.com/63274055/148272842-f1628185-280c-4b58-93a4-f6b3d52215c8.png[width=700]
 
+
+xref:Lab-SQL-Queries-8[Top Section]
+
+xref:Find-which-is-the-most-rented-film[Bottom section]
+
+
 == Rank films by length within the rating category 
 
 * (filter out the rows that have nulls or 0s in length column). In your output, only select the columns title, length, rating and the rank.
@@ -116,6 +122,12 @@ ORDER BY
 ```
 
 image::https://user-images.githubusercontent.com/63274055/148276964-2558ed20-fa66-4695-b49b-d0fda6a6f017.png[width=800]
+
+
+xref:Lab-SQL-Queries-8[Top Section]
+
+xref:Find-which-is-the-most-rented-film[Bottom section]
+
 
 == How many films are there for each of the categories in the category table?
 
@@ -164,6 +176,12 @@ LIMIT
 ```
 
 image::https://user-images.githubusercontent.com/63274055/148309559-08d56cf9-7831-43ad-8fc6-efcbf4a518dc.png[width=800]
+
+
+xref:Lab-SQL-Queries-8[Top Section]
+
+xref:Find-which-is-the-most-rented-film[Bottom section]
+
 
 == Most active customer 
 
